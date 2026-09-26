@@ -8,6 +8,7 @@ interface CertificateTemplateProps {
     recipientName: string;
     credentialName: string;
     issueDate: string;
+    expiresAt?: string;
     honors?: string;
     template?: string;
   };
@@ -63,6 +64,13 @@ export function CertificateTemplate({ credential, signature }: CertificateTempla
               <span className="font-serif italic text-[1.8cqi]">{credential.issueDate ? new Date(credential.issueDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'Date'}</span>
             </div>
             
+            {credential.expiresAt && (
+              <div className="text-left flex flex-col border-t border-black pt-[1cqi]">
+                <span className="text-[1cqi] font-sans font-bold tracking-widest uppercase mb-[0.5cqi]">Valid Until</span>
+                <span className="font-serif italic text-[1.8cqi]">{new Date(credential.expiresAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+              </div>
+            )}
+            
             <div className="text-left flex flex-col border-t border-black pt-[1cqi]">
               <span className="text-[1cqi] font-sans font-bold tracking-widest uppercase mb-[0.5cqi]">Signature</span>
               <span className="font-mono text-[1.2cqi] w-[20cqi] truncate mt-1 opacity-70">
@@ -111,6 +119,14 @@ export function CertificateTemplate({ credential, signature }: CertificateTempla
               <div className="font-mono text-[2cqi] font-bold text-white">
                 {credential.issueDate}
               </div>
+              {credential.expiresAt && (
+                <>
+                  <div className="text-red-500 font-mono text-[1cqi] uppercase tracking-widest mb-[1cqi] mt-[2cqi]">VALID_UNTIL</div>
+                  <div className="font-mono text-[2cqi] font-bold text-white">
+                    {credential.expiresAt}
+                  </div>
+                </>
+              )}
               {credential.honors && (
                 <div className="mt-[2cqi] font-mono text-[1.2cqi] text-white/70 border-l-2 border-red-500 pl-[1cqi]">
                   {credential.honors}
@@ -187,6 +203,13 @@ export function CertificateTemplate({ credential, signature }: CertificateTempla
             <span className="text-[1.2cqi] font-mono tracking-widest text-white/40 uppercase mb-[1cqi]">DATE OF ISSUE</span>
             <span className="font-medium font-mono text-[1.8cqi] text-white/80">{credential.issueDate ? new Date(credential.issueDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'Date'}</span>
           </div>
+          
+          {credential.expiresAt && (
+            <div className="text-left flex flex-col">
+              <span className="text-[1.2cqi] font-mono tracking-widest text-white/40 uppercase mb-[1cqi]">VALID UNTIL</span>
+              <span className="font-medium font-mono text-[1.8cqi] text-white/80">{new Date(credential.expiresAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+            </div>
+          )}
           
           <div className="text-left flex flex-col">
             <span className="text-[1.2cqi] font-mono tracking-widest text-white/40 uppercase mb-[1cqi]">CRYPTOGRAPHIC SIGNATURE</span>
