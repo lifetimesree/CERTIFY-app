@@ -48,16 +48,17 @@ export default function IssuerLayout({
     { href: "/issuer/issue", label: "Issue Credential", icon: FilePlus2 },
   ];
 
-  const layoutBg = "bg-gray-50";
-  const sidebarBg = "bg-white border-gray-200";
-  const sidebarHeaderBorder = "border-gray-100";
-  const sidebarLogo = "text-black";
-  const sidebarSection = "text-gray-400";
-  const navBase = "text-gray-600 hover:bg-gray-50 hover:text-gray-900";
-  const navActive = "bg-gray-100 text-gray-900";
+  // Make the entire dashboard dark mode to match the rest of the website
+  const layoutBg = "bg-[#030303]";
+  const sidebarBg = "bg-[#000] border-gray-800";
+  const sidebarHeaderBorder = "border-gray-900";
+  const sidebarLogo = "text-white";
+  const sidebarSection = "text-gray-500";
+  const navBase = "text-gray-400 hover:bg-[#111] hover:text-white";
+  const navActive = "bg-[#111] text-white border border-gray-800";
 
   return (
-    <div className={`flex min-h-screen ${layoutBg} transition-colors duration-500 overflow-hidden relative`}>
+    <div className={`flex min-h-screen ${layoutBg} transition-colors duration-500 overflow-hidden relative text-white`}>
       {/* Sidebar */}
       <aside className={`w-64 border-r flex flex-col hidden md:flex transition-colors duration-500 relative z-10 ${sidebarBg}`}>
         <div className={`h-16 flex items-center px-6 border-b ${sidebarHeaderBorder}`}>
