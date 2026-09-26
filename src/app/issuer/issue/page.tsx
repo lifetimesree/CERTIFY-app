@@ -224,11 +224,11 @@ export default function IssuePage() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 text-white">
+    <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 text-gray-900">
       <div className="space-y-8">
         <div>
           <h1 className="text-3xl font-display font-bold tracking-tight">Issue a Certificate</h1>
-          <p className="text-gray-400 mt-2">Create a credential and seal its payload into the database.</p>
+          <p className="text-gray-600 mt-2">Create a credential and seal its payload into the database.</p>
         </div>
 
         <div className="flex bg-[#000] rounded-lg p-1 border border-gray-800">
